@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lease Agreement Application</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div class="gold-bar"></div>
+
+  <header class="hero">
+    <div class="hero-eyebrow">Contract Execution</div>
+    <h1 class="hero-title">Lease Agreement <span class="accent">Application</span></h1>
+    <p class="hero-sub">Please fill out all fields accurately. Your contract will be prepared and sent to your email once submitted.</p>
+  </header>
+
+  <main class="main">
+
+    <div id="error-banner" class="error-banner" role="alert"></div>
+
+    <form id="intake-form" novalidate>
+
+      <!-- Personal Information -->
+      <section class="card">
+        <p class="card-title">Personal Information</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="full_name">Full Name <span class="required">*</span></label>
+            <input
+              type="text"
+              id="full_name"
+              name="full_name"
+              placeholder="Juan dela Cruz"
+              autocomplete="name"
+              inputmode="text"
+            />
+            <span class="field-error" id="err_full_name" role="alert"></span>
+          </div>
+        </div>
+
+        <div class="form-row two-col">
+          <div class="form-group">
+            <label for="email">Email Address <span class="required">*</span></label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="juan@email.com"
+              autocomplete="email"
+              inputmode="email"
+            />
+            <span class="field-error" id="err_email" role="alert"></span>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number <span class="required">*</span></label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="+63 900 000 0000"
+              autocomplete="tel"
+              inputmode="tel"
+            />
+            <span class="field-error" id="err_phone" role="alert"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Property Details -->
+      <section class="card">
+        <p class="card-title">Property Details</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="property_address">Property Address <span class="required">*</span></label>
+            <input
+              type="text"
+              id="property_address"
+              name="property_address"
+              placeholder="123 Rizal St., Quezon City"
+              autocomplete="street-address"
+            />
+            <span class="field-error" id="err_property_address" role="alert"></span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="unit">Unit / Room <span class="required">*</span></label>
+            <input
+              type="text"
+              id="unit"
+              name="unit"
+              placeholder="Unit 2B"
+            />
+            <span class="field-error" id="err_unit" role="alert"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Lease Terms -->
+      <section class="card">
+        <p class="card-title">Lease Terms</p>
+
+        <div class="form-row two-col">
+          <div class="form-group">
+            <label for="lease_start">Start Date <span class="required">*</span></label>
+            <input
+              type="date"
+              id="lease_start"
+              name="lease_start"
+            />
+            <span class="field-error" id="err_lease_start" role="alert"></span>
+          </div>
+          <div class="form-group">
+            <label for="lease_end">End Date <span class="required">*</span></label>
+            <input
+              type="date"
+              id="lease_end"
+              name="lease_end"
+            />
+            <span class="field-error" id="err_lease_end" role="alert"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Emergency Contact -->
+      <section class="card">
+        <p class="card-title">Emergency Contact</p>
+
+        <div class="form-row two-col">
+          <div class="form-group">
+            <label for="emergency_name">Contact Name <span class="required">*</span></label>
+            <input
+              type="text"
+              id="emergency_name"
+              name="emergency_name"
+              placeholder="Maria dela Cruz"
+              autocomplete="off"
+            />
+            <span class="field-error" id="err_emergency_name" role="alert"></span>
+          </div>
+          <div class="form-group">
+            <label for="emergency_phone">Contact Number <span class="required">*</span></label>
+            <input
+              type="tel"
+              id="emergency_phone"
+              name="emergency_phone"
+              placeholder="+63 900 000 0001"
+              autocomplete="off"
+              inputmode="tel"
+            />
+            <span class="field-error" id="err_emergency_phone" role="alert"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Submit -->
+      <div class="submit-card">
+        <button type="submit" class="btn-submit">
+          <span class="btn-text">Submit Application</span>
+          <span class="btn-loading">Submitting…</span>
+        </button>
+        <p class="form-notice">All fields are required. Your information is used solely for contract preparation.</p>
+      </div>
+
+    </form>
+  </main>
+
+  <script src="js/form.js"></script>
+</body>
+</html>

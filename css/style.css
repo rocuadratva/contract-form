@@ -1,0 +1,285 @@
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #1B3B6E;
+  --navy-dark: #0F2244;
+  --navy-tint: #EBF0F8;
+  --gold: #E8A020;
+  --bg: #F4F6FA;
+  --card-bg: #FFFFFF;
+  --card-border: #D4DCE8;
+  --muted: #5A6E8C;
+  --error: #DC2626;
+  --success: #16A34A;
+  --radius: 12px;
+  --transition: 180ms ease;
+}
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--bg);
+  background-image: radial-gradient(var(--navy) 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-attachment: fixed;
+  color: var(--navy-dark);
+  min-height: 100vh;
+  padding-bottom: 48px;
+}
+
+/* ===== GOLD TOP BAR ===== */
+.gold-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--gold);
+  z-index: 1000;
+}
+
+/* ===== HERO CARD ===== */
+.hero {
+  position: relative;
+  background: linear-gradient(140deg, var(--navy-dark) 0%, var(--navy) 100%);
+  padding: 56px 24px 40px;
+  overflow: hidden;
+  border-bottom: 3px solid var(--gold);
+  margin-top: 3px;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 260px; height: 260px;
+  border-radius: 50%;
+  background: rgba(232, 160, 32, 0.12);
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.hero-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(26px, 6vw, 36px);
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.2;
+}
+
+.hero-title .accent { color: var(--gold); }
+
+.hero-sub {
+  margin-top: 10px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.65);
+  max-width: 480px;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 16px 0;
+}
+
+/* ===== FORM CARD ===== */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(27,59,110,0.06);
+}
+
+.card-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--card-border);
+}
+
+/* ===== FORM ELEMENTS ===== */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 480px) {
+  .form-row.two-col { grid-template-columns: 1fr 1fr; }
+}
+
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+
+label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--navy);
+}
+
+label .required {
+  color: var(--error);
+  margin-left: 2px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"] {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 14px;
+  border: 1.5px solid var(--card-border);
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  color: var(--navy-dark);
+  background: var(--card-bg);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(27,59,110,0.12);
+}
+
+input.error {
+  border-color: var(--error);
+  box-shadow: 0 0 0 3px rgba(220,38,38,0.1);
+}
+
+.field-error {
+  font-size: 12px;
+  color: var(--error);
+  display: none;
+  align-items: center;
+  gap: 4px;
+}
+
+.field-error.visible { display: flex; }
+
+/* ===== CTA BUTTON ===== */
+.btn-submit {
+  display: block;
+  width: 100%;
+  min-height: 52px;
+  padding: 0 24px;
+  background: var(--gold);
+  color: var(--navy-dark);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition), opacity var(--transition);
+  letter-spacing: 0.02em;
+}
+
+.btn-submit:hover { background: #d4911a; }
+.btn-submit:active { transform: scale(0.98); }
+.btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+.btn-submit .btn-text { display: block; }
+.btn-submit .btn-loading { display: none; }
+.btn-submit.loading .btn-text { display: none; }
+.btn-submit.loading .btn-loading { display: block; }
+
+/* ===== SUBMIT CARD ===== */
+.submit-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.form-notice {
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 12px;
+  line-height: 1.5;
+}
+
+/* ===== ERROR BANNER ===== */
+.error-banner {
+  background: rgba(220,38,38,0.08);
+  border: 1.5px solid var(--error);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 13px;
+  color: var(--error);
+  margin-bottom: 16px;
+  display: none;
+}
+.error-banner.visible { display: block; }
+
+/* ===== SUCCESS PAGE ===== */
+.steps-list {
+  list-style: none;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.steps-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.step-num {
+  flex-shrink: 0;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: #fff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.contact-block {
+  margin-top: 20px;
+  padding: 16px;
+  background: var(--navy-tint);
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--navy);
+  line-height: 1.7;
+}
+
+.contact-block strong {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  display: block;
+  margin-bottom: 4px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
