@@ -26,7 +26,7 @@ body {
   background-attachment: fixed;
   color: var(--navy-dark);
   min-height: 100vh;
-  padding-bottom: 48px;
+  padding-bottom: 24px;
 }
 
 /* ===== GOLD TOP BAR ===== */
@@ -42,7 +42,7 @@ body {
 .hero {
   position: relative;
   background: linear-gradient(140deg, var(--navy-dark) 0%, var(--navy) 100%);
-  padding: 56px 24px 40px;
+  padding: 28px 20px 20px;
   overflow: hidden;
   border-bottom: 3px solid var(--gold);
   margin-top: 3px;
@@ -89,7 +89,7 @@ body {
 .main {
   max-width: 680px;
   margin: 0 auto;
-  padding: 32px 16px 0;
+  padding: 20px 16px 0;
 }
 
 /* ===== FORM CARD ===== */
@@ -97,8 +97,8 @@ body {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: var(--radius);
-  padding: 32px 24px;
-  margin-bottom: 16px;
+  padding: 20px 16px;
+  margin-bottom: 8px;
   box-shadow: 0 2px 8px rgba(27,59,110,0.06);
 }
 
@@ -109,8 +109,8 @@ body {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--navy);
-  margin-bottom: 20px;
-  padding-bottom: 12px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
   border-bottom: 1px solid var(--card-border);
 }
 
@@ -118,8 +118,8 @@ body {
 .form-row {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 16px;
-  margin-bottom: 16px;
+  gap: 12px;
+  margin-bottom: 12px;
 }
 
 @media (min-width: 480px) {
@@ -228,8 +228,8 @@ select.error {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: var(--radius);
-  padding: 24px;
-  margin-bottom: 24px;
+  padding: 16px;
+  margin-bottom: 8px;
 }
 
 .form-notice {
