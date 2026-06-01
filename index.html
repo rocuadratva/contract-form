@@ -113,24 +113,13 @@
           </div>
         </div>
 
-        <div class="form-row two-col">
+        <div class="form-row">
           <div class="form-group">
-            <label for="lease_start">Extension Start Date <span class="required">*</span></label>
-            <input
-              type="date"
-              id="lease_start"
-              name="lease_start"
-            />
-            <span class="field-error" id="err_lease_start" role="alert"></span>
-          </div>
-          <div class="form-group">
-            <label for="lease_end">Extension End Date <span class="required">*</span></label>
-            <input
-              type="date"
-              id="lease_end"
-              name="lease_end"
-            />
-            <span class="field-error" id="err_lease_end" role="alert"></span>
+            <label for="lease_term">Lease Term <span class="required">*</span></label>
+            <select id="lease_term" name="lease_term" disabled>
+              <option value="">Select a unit first</option>
+            </select>
+            <span class="field-error" id="err_lease_term" role="alert"></span>
           </div>
         </div>
       </section>

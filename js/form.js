@@ -6,7 +6,7 @@ let allUnits = {};
 const REQUIRED_FIELDS = [
   'full_name', 'email', 'phone',
   'property_name', 'unit_number',
-  'original_contract_date', 'lease_start', 'lease_end',
+  'original_contract_date', 'lease_term',
   'emergency_name', 'emergency_phone'
 ];
 
@@ -17,8 +17,7 @@ const ERROR_MESSAGES = {
   property_name: 'Please select a property.',
   unit_number: 'Please select a unit.',
   original_contract_date: 'Original contract date is required.',
-  lease_start: 'Extension start date is required.',
-  lease_end: 'Extension end date is required.',
+  lease_term: 'Please select a lease term.',
   emergency_name: 'Emergency contact name is required.',
   emergency_phone: 'Emergency contact number is required.',
 };
@@ -43,15 +42,7 @@ function validateField(name) {
     valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
   }
 
-  if (name === 'lease_end' && valid) {
-    const start = getField('lease_start').value;
-    if (start && value <= start) {
-      valid = false;
-      errEl.textContent = 'End date must be after start date.';
-    }
-  }
-
-  if (!valid && name !== 'lease_end') {
+  if (!valid) {
     errEl.textContent = ERROR_MESSAGES[name] || 'This field is required.';
   }
 
@@ -112,6 +103,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   loadPropertyOptions();
 
+  const leaseTermSelect = getField('lease_term');
+
+  function resetLeaseTermSelect() {
+    leaseTermSelect.innerHTML = '<option value="">Select a unit first</option>';
+    leaseTermSelect.disabled = true;
+  }
+
   propertySelect.addEventListener('change', () => {
     const selected = propertySelect.value;
     unitSelect.innerHTML = '<option value="">Select a unit…</option>';
@@ -123,7 +121,25 @@ document.addEventListener('DOMContentLoaded', () => {
       unitSelect.appendChild(opt);
     }
     unitSelect.disabled = units.length === 0;
+    resetLeaseTermSelect();
     validateField('property_name');
+  });
+
+  unitSelect.addEventListener('change', () => {
+    const property = propertySelect.value;
+    const unitNumber = unitSelect.value;
+    const units = allUnits[property] || [];
+    const unit = units.find(u => u.unit_number === unitNumber);
+    const leaseTerms = unit?.lease_terms || [];
+    leaseTermSelect.innerHTML = '<option value="">Select a lease term…</option>';
+    for (const term of leaseTerms) {
+      const opt = document.createElement('option');
+      opt.value = term;
+      opt.textContent = term;
+      leaseTermSelect.appendChild(opt);
+    }
+    leaseTermSelect.disabled = leaseTerms.length === 0;
+    validateField('unit_number');
   });
 
   REQUIRED_FIELDS.forEach(name => {
