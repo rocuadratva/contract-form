@@ -70,6 +70,21 @@
             <span class="field-error" id="err_phone" role="alert"></span>
           </div>
         </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="tenant_address">Current Address <span class="required">*</span></label>
+            <input
+              type="text"
+              id="tenant_address"
+              name="tenant_address"
+              placeholder="123 Main St, Barangay, City"
+              autocomplete="street-address"
+              inputmode="text"
+            />
+            <span class="field-error" id="err_tenant_address" role="alert"></span>
+          </div>
+        </div>
       </section>
 
       <!-- Property Details -->
@@ -100,18 +115,6 @@
       <!-- Lease Terms -->
       <section class="card">
         <p class="card-title">Lease Terms</p>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="original_contract_date">Original Contract Date <span class="required">*</span></label>
-            <input
-              type="date"
-              id="original_contract_date"
-              name="original_contract_date"
-            />
-            <span class="field-error" id="err_original_contract_date" role="alert"></span>
-          </div>
-        </div>
 
         <div class="form-row">
           <div class="form-group">

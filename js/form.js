@@ -4,9 +4,9 @@ const OPTIONS_URL = 'https://n8n.srv1326537.hstgr.cloud/webhook/contract-form-op
 let allUnits = {};
 
 const REQUIRED_FIELDS = [
-  'full_name', 'email', 'phone',
+  'full_name', 'email', 'phone', 'tenant_address',
   'property_name', 'unit_number',
-  'original_contract_date', 'lease_term',
+  'lease_term',
   'emergency_name', 'emergency_phone'
 ];
 
@@ -14,9 +14,9 @@ const ERROR_MESSAGES = {
   full_name: 'Full name is required.',
   email: 'A valid email address is required.',
   phone: 'Phone number is required.',
+  tenant_address: 'Current address is required.',
   property_name: 'Please select a property.',
   unit_number: 'Please select a unit.',
-  original_contract_date: 'Original contract date is required.',
   lease_term: 'Please select a lease term.',
   emergency_name: 'Emergency contact name is required.',
   emergency_phone: 'Emergency contact number is required.',
