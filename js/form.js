@@ -134,8 +134,8 @@ document.addEventListener('DOMContentLoaded', () => {
     leaseTermSelect.innerHTML = '<option value="">Select a lease term…</option>';
     for (const term of leaseTerms) {
       const opt = document.createElement('option');
-      opt.value = term;
-      opt.textContent = term;
+      opt.value = typeof term === 'object' ? term.value : term;
+      opt.textContent = typeof term === 'object' ? term.label : term;
       leaseTermSelect.appendChild(opt);
     }
     leaseTermSelect.disabled = leaseTerms.length === 0;
