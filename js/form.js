@@ -13,13 +13,13 @@ const REQUIRED_FIELDS = [
 const ERROR_MESSAGES = {
   full_name: 'Full name is required.',
   email: 'A valid email address is required.',
-  phone: 'Phone number is required.',
+  phone: 'Phone number must be 10 digits (e.g. 09664220221).',
   tenant_address: 'Current address is required.',
   property_name: 'Please select a property.',
   unit_number: 'Please select a unit.',
   lease_term: 'Please select a lease term.',
   emergency_name: 'Emergency contact name is required.',
-  emergency_phone: 'Emergency contact number is required.',
+  emergency_phone: 'Contact number must be 10 digits (e.g. 09664220221).',
 };
 
 function getField(name) {
@@ -40,6 +40,10 @@ function validateField(name) {
 
   if (name === 'email' && valid) {
     valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+  }
+
+  if ((name === 'phone' || name === 'emergency_phone') && valid) {
+    valid = /^[0-9]{10}$/.test(value);
   }
 
   if (!valid) {
