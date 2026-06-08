@@ -73,6 +73,14 @@ function setSubmitting(btn, state) {
   btn.classList.toggle('loading', state);
 }
 
+function showSuccess() {
+  document.getElementById('intake-form').classList.add('hidden');
+  document.getElementById('hero-form').classList.add('hidden');
+  document.getElementById('hero-success').classList.remove('hidden');
+  document.getElementById('success-view').classList.remove('hidden');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 async function loadPropertyOptions() {
   const propertySelect = getField('property_name');
   const unitSelect = getField('unit_number');
@@ -84,7 +92,7 @@ async function loadPropertyOptions() {
     const data = await res.json();
     allUnits = data.units || {};
 
-    propertySelect.innerHTML = '<option value="">Select a property…</option>';
+    propertySelect.innerHTML = '<option value="">Select a property...</option>';
     for (const prop of (data.properties || [])) {
       const opt = document.createElement('option');
       opt.value = prop;
@@ -116,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   propertySelect.addEventListener('change', () => {
     const selected = propertySelect.value;
-    unitSelect.innerHTML = '<option value="">Select a unit…</option>';
+    unitSelect.innerHTML = '<option value="">Select a unit...</option>';
     const units = allUnits[selected] || [];
     for (const u of units) {
       const opt = document.createElement('option');
@@ -135,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const units = allUnits[property] || [];
     const unit = units.find(u => u.unit_number === unitNumber);
     const leaseTerms = unit?.lease_terms || [];
-    leaseTermSelect.innerHTML = '<option value="">Select a lease term…</option>';
+    leaseTermSelect.innerHTML = '<option value="">Select a lease term...</option>';
     for (const term of leaseTerms) {
       const opt = document.createElement('option');
       opt.value = typeof term === 'object' ? term.value : term;
@@ -198,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (!response.ok) throw new Error(`Server error ${response.status}`);
 
-      window.location.href = 'success.html';
+      showSuccess();
     } catch (err) {
       errorBanner.textContent = 'Something went wrong. Please try again or contact the owner directly.';
       errorBanner.classList.add('visible');
