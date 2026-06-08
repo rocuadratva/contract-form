@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lease Agreement Application</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div class="gold-bar"></div>
+
+  <header class="hero" id="hero-form">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Tenant Lease Application</div>
+      <h1 class="hero-title">Lease Application &amp; <span class="accent">Data Collection</span></h1>
+      <p class="hero-sub">Please fill out all fields with accurate information. Your details will be used to prepare your lease contract.</p>
+    </div>
+  </header>
+
+  <header class="hero hidden" id="hero-success">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Application Received</div>
+      <h1 class="hero-title">Thank <span class="accent">You!</span></h1>
+      <p class="hero-sub">Your lease application has been received and is being processed.</p>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <div id="error-banner" class="error-banner" role="alert"></div>
+
+    <form id="intake-form" novalidate>
+
+      <!-- Personal Information -->
+      <section class="card">
+        <p class="card-title">Personal Information</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="full_name">Full Name <span class="required">*</span></label>
+            <input
+              type="text"
+              id="full_name"
+              name="full_name"
+              placeholder="Juan dela Cruz"
+              autocomplete="name"
+              inputmode="text"
+            />
+            <span class="field-error" id="err_full_name" role="alert"></span>
+          </div>
+        </div>
+
+        <div class="form-row two-col">
+          <div class="form-group">
+            <label for="email">Email Address <span class="required">*</span></label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="juan@email.com"
+              autocomplete="email"
+              inputmode="email"
+            />
+            <span class="field-error" id="err_email" role="alert"></span>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number <span class="required">*</span></label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="09123456789"
+              pattern="[0-9]{11}"
+              maxlength="11"
+              autocomplete="tel"
+              inputmode="numeric"
+            />
+            <span class="field-error" id="err_phone" role="alert"></span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="tenant_address">Current Address <span class="required">*</span></label>
+            <input
+              type="text"
+              id="tenant_address"
+              name="tenant_address"
+              placeholder="123 Main St, Barangay, City"
+              autocomplete="street-address"
+              inputmode="text"
+            />
+            <span class="field-error" id="err_tenant_address" role="alert"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Property Details -->
+      <section class="card">
+        <p class="card-title">Property Details</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="property_name">Property <span class="required">*</span></label>
+            <select id="property_name" name="property_name">
+              <option value="">Loading properties...</option>
+            </select>
+            <span class="field-error" id="err_property_name" role="alert"></span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="unit_number">Unit / Room <span class="required">*</span></label>
+            <select id="unit_number" name="unit_number" disabled>
+              <option value="">Select a property first</option>
+            </select>
+            <span class="field-error" id="err_unit_number" role="alert"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Lease Terms -->
+      <section class="card">
+        <p class="card-title">Lease Terms</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="lease_term">Lease Term <span class="required">*</span></label>
+            <select id="lease_term" name="lease_term" disabled>
+              <option value="">Select a unit first</option>
+            </select>
+            <span class="field-error" id="err_lease_term" role="alert"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Emergency Contact -->
+      <section class="card">
+        <p class="card-title">Emergency Contact</p>
+
+        <div class="form-row two-col">
+          <div class="form-group">
+            <label for="emergency_name">Contact Name <span class="required">*</span></label>
+            <input
+              type="text"
+              id="emergency_name"
+              name="emergency_name"
+              placeholder="Maria dela Cruz"
+              autocomplete="off"
+            />
+            <span class="field-error" id="err_emergency_name" role="alert"></span>
+          </div>
+          <div class="form-group">
+            <label for="emergency_phone">Contact Number <span class="required">*</span></label>
+            <input
+              type="tel"
+              id="emergency_phone"
+              name="emergency_phone"
+              placeholder="09123456789"
+              pattern="[0-9]{11}"
+              maxlength="11"
+              autocomplete="off"
+              inputmode="numeric"
+            />
+            <span class="field-error" id="err_emergency_phone" role="alert"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Data Privacy & Security Notice -->
+      <div class="privacy-notice">
+        <div class="privacy-notice__icon">&#x1F512;</div>
+        <div class="privacy-notice__body">
+          <strong>Data Privacy &amp; Security</strong>
+          <p>Your information is collected under <em>Republic Act 10173 (Data Privacy Act of 2012)</em>. It will only be used for lease contract preparation and tenant record-keeping. We do not share your data with third parties. This form is transmitted over a secure connection.</p>
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <div class="submit-card">
+        <button type="submit" class="btn-submit">
+          <span class="btn-text">Submit Application</span>
+          <span class="btn-loading">Submitting...</span>
+        </button>
+        <p class="form-notice">By submitting, you consent to the collection and processing of your data as described above.</p>
+      </div>
+
+    </form>
+
+    <!-- Success state (hidden until form submits successfully) -->
+    <div id="success-view" class="hidden">
+      <div class="card">
+        <p class="card-title">What Happens Next</p>
+
+        <ul class="steps-list">
+          <li>
+            <div class="step-num">1</div>
+            <span>Your details have been recorded. A contract is being prepared for you.</span>
+          </li>
+          <li>
+            <div class="step-num">2</div>
+            <span>You will receive an email shortly with your lease contract attached as a PDF.</span>
+          </li>
+          <li>
+            <div class="step-num">3</div>
+            <span>Download and review your contract. Sign it using any free signing tool (Smallpdf, ilovepdf, or Adobe Fill &amp; Sign).</span>
+          </li>
+          <li>
+            <div class="step-num">4</div>
+            <span>Upload your signed copy to the Google Drive folder linked in the email, inside the <strong>Contract</strong> subfolder.</span>
+          </li>
+          <li>
+            <div class="step-num">5</div>
+            <span>Email the owner to confirm you have uploaded your signed contract. Once reviewed, you are all set!</span>
+          </li>
+        </ul>
+
+        <div class="contact-block">
+          <strong>Questions?</strong>
+          Contact the property owner directly at <a href="mailto:raphaelocuadra@gmail.com" style="color: var(--navy); font-weight: 500;">raphaelocuadra@gmail.com</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="js/form.js"></script>
+</body>
+</html>
