@@ -344,3 +344,6 @@ select.error {
   text-transform: uppercase;
   color: var(--muted);
 }
+
+/* ===== UTILITY ===== */
+.hidden { display: none !important; }
