@@ -347,3 +347,5 @@ select.error {
 
 /* ===== UTILITY ===== */
 .hidden { display: none !important; }
+
+#hero-success .hero-content { text-align: center; }
