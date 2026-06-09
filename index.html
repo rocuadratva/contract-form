@@ -13,11 +13,19 @@
 
   <div class="gold-bar"></div>
 
-  <header class="hero">
+  <header class="hero" id="hero-form">
     <div class="hero-content">
       <div class="hero-eyebrow">Tenant Lease Application</div>
-      <h1 class="hero-title">Lease Application & <span class="accent">Data Collection</span></h1>
+      <h1 class="hero-title">Lease Application &amp; <span class="accent">Data Collection</span></h1>
       <p class="hero-sub">Please fill out all fields with accurate information. Your details will be used to prepare your lease contract.</p>
+    </div>
+  </header>
+
+  <header class="hero hidden" id="hero-success">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Application Received</div>
+      <h1 class="hero-title">Thank <span class="accent">You!</span></h1>
+      <p class="hero-sub">Your lease application has been received and is being processed.</p>
     </div>
   </header>
 
@@ -99,7 +107,7 @@
           <div class="form-group">
             <label for="property_name">Property <span class="required">*</span></label>
             <select id="property_name" name="property_name">
-              <option value="">Loading properties…</option>
+              <option value="">Loading properties...</option>
             </select>
             <span class="field-error" id="err_property_name" role="alert"></span>
           </div>
@@ -166,9 +174,9 @@
 
       <!-- Data Privacy & Security Notice -->
       <div class="privacy-notice">
-        <div class="privacy-notice__icon">🔒</div>
+        <div class="privacy-notice__icon">&#x1F512;</div>
         <div class="privacy-notice__body">
-          <strong>Data Privacy & Security</strong>
+          <strong>Data Privacy &amp; Security</strong>
           <p>Your information is collected under <em>Republic Act 10173 (Data Privacy Act of 2012)</em>. It will only be used for lease contract preparation and tenant record-keeping. We do not share your data with third parties. This form is transmitted over a secure connection.</p>
         </div>
       </div>
@@ -177,12 +185,48 @@
       <div class="submit-card">
         <button type="submit" class="btn-submit">
           <span class="btn-text">Submit Application</span>
-          <span class="btn-loading">Submitting…</span>
+          <span class="btn-loading">Submitting...</span>
         </button>
         <p class="form-notice">By submitting, you consent to the collection and processing of your data as described above.</p>
       </div>
 
     </form>
+
+    <!-- Success state (hidden until form submits successfully) -->
+    <div id="success-view" class="hidden">
+      <div class="card">
+        <p class="card-title">What Happens Next</p>
+
+        <ul class="steps-list">
+          <li>
+            <div class="step-num">1</div>
+            <span>Your details have been recorded. A contract is being prepared for you.</span>
+          </li>
+          <li>
+            <div class="step-num">2</div>
+            <span>You will receive an email shortly with your lease contract attached as a PDF.</span>
+          </li>
+          <li>
+            <div class="step-num">3</div>
+            <span>Download and review your contract. Sign it using any free signing tool (Smallpdf, ilovepdf, or Adobe Fill &amp; Sign).</span>
+          </li>
+          <li>
+            <div class="step-num">4</div>
+            <span>Upload your signed copy to the Google Drive folder linked in the email, inside the <strong>Contract</strong> subfolder.</span>
+          </li>
+          <li>
+            <div class="step-num">5</div>
+            <span>Email the owner to confirm you have uploaded your signed contract. Once reviewed, you are all set!</span>
+          </li>
+        </ul>
+
+        <div class="contact-block">
+          <strong>Questions?</strong>
+          Contact the property owner directly at <a href="mailto:raphaelocuadra@gmail.com" style="color: var(--navy); font-weight: 500;">raphaelocuadra@gmail.com</a>
+        </div>
+      </div>
+    </div>
+
   </main>
 
   <script src="js/form.js"></script>
